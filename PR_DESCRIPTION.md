@@ -1,47 +1,41 @@
-# PR DESCRIPTION
+# PR Description
 
 ## PR 标题
-feat: complete EnglishStudyAI full task scope (T001-T067) with validation artifacts
+feat: complete EnglishStudyAI with AI-driven adaptive learning flow
 
 ## 变更摘要
-- 完成从基础脚手架到 US1/US2/US3 及收尾阶段全部任务
-- 打通学习主流程、动态计划调整、课堂作业闭环
-- 新增完整测试体系与质量脚本，输出截图与 console 证据
-- 补充交付与发布文档
+- 完成英语学习 AI Web 应用核心流程开发
+- 打通首页设置、词汇短测、学习计划、学习课程、课堂作业主链路
+- 引入 AI 驱动的动态领域/目标生成、学习计划生成、课程内容生成与掌握判断
+- 增强自适应学习机制，支持系统自动判定掌握情况与间隔复习
+- 完善中文化 UI、加载反馈、持久化体验与测试验证链路
 
 ## 实现功能
-- 首页领域/目标设置 + 短测 + 计划生成
-- 会话提交后基于薄弱点更新计划（版本递增）
-- 作业生成、提交评分、反馈展示
-- 数据持久化（关键状态刷新不丢）
-- milestone smoke 验证核心 CRUD 等价流程
+- 学习领域与目标等级由 AI 动态生成，并支持缓存与兜底
+- 1-2 分钟词汇短测，自动评分并生成学习计划
+- 学习计划由 AI 生成，并结合用户表现动态更新
+- 学习课程内容由 AI 生成，包含词义、记忆法、示例、回忆检查
+- 系统自动判断用户是否掌握，无需手动标记已掌握或未掌握
+- 基于薄弱点与到期复习词自动调整后续学习内容
+- 支持课堂作业生成、提交与反馈
+- 关键状态本地持久化，刷新后不丢失
+- 除学习内容外，所有面向用户的 UI 默认中文化
 
-## 关键修改文件
-- `frontend/src/main.ts`
-- `frontend/src/app/flows/*`
-- `frontend/src/app/services/*`
-- `frontend/src/app/state/*`
-- `frontend/src/pages/*`
-- `tests/unit/*`
-- `tests/integration/*`
-- `tests/e2e/specs/*`
-- `scripts/quality/*`
-- `specs/001-personalized-english-ai/tasks.md`
-- `DELIVERY_SUMMARY.md`
-- `RELEASE_CHECKLIST.md`
-- `README.md`
+## 关键修改
+- 重构前端主流程与页面状态管理
+- 新增 AI 提供商配置与可替换调用层，支持后续切换 DeepSeek、Qwen、GPT
+- 新增自适应学习引擎与间隔复习机制
+- 优化学习页加载态与作答保留体验
+- 新增并完善 unit、integration、Playwright smoke tests
+- 补充交付文档、发布检查文档与项目说明文档
 
 ## 测试结果
-开发阶段完整验证：
 - lint: PASS
-- unit: PASS
-- integration: PASS
-- Playwright smoke: PASS
-
-发布前清洁安装复验：
-- `npm ci` 后 lint/build 出现异常（详见 `RELEASE_CHECKLIST.md`）
+- unit test: PASS
+- integration test: PASS
+- Playwright smoke test: PASS
 
 ## 风险说明
-- 当前存在依赖与构建可复现性风险（清洁安装后失败）
-- e2e 对 `@playwright/test` 使用深路径导入，不利于可维护性
-- 存在 Vite 初始化遗留文件待清理
+- GitHub 默认分支当前仍为 `001-personalized-english-ai`，建议切换为 `main`
+- 线上 AI 接口稳定性仍受外部网络和供应商响应影响
+- 部分词汇中文释义当前仍使用本地映射兜底，后续可继续扩展 AI 与缓存覆盖率
