@@ -1,0 +1,17 @@
+{
+  "notes": [
+    "entry ok",
+    "entry->home ok",
+    "goal error: Please choose a goal level.",
+    "home->assessment ok",
+    "score error: Please provide an assessment score between 0 and 100.",
+    "assessment->plan ok",
+    "plan->session ok",
+    "session error: Please provide mastered or missed words.",
+    "session->plan with version update ok",
+    "plan->assignment ok",
+    "assignment submit -> plan with feedback ok",
+    "reset -> entry ok"
+  ],
+  "consoleErrors": []
+}

@@ -1,50 +1,105 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report
+- Version change: N/A (template) -> 1.0.0
+- Modified principles:
+  - N/A -> I. Core User Flow First
+  - N/A -> II. Strict TypeScript by Default
+  - N/A -> III. Verifiable Acceptance Criteria
+  - N/A -> IV. Baseline Usability Coverage
+  - N/A -> V. Mandatory Quality Gates
+- Added sections:
+  - Delivery & Quality Standards
+  - Workflow & Review Policy
+- Removed sections:
+  - None
+- Templates requiring updates:
+  - ✅ updated: .specify/templates/plan-template.md
+  - ✅ updated: .specify/templates/spec-template.md
+  - ✅ updated: .specify/templates/tasks-template.md
+- Follow-up TODOs:
+  - None
+-->
+# EnglishStudyAI Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Core User Flow First
+All features MUST prioritize the core user journey before any extension or optimization work.
+When scope conflict exists, teams MUST deliver the smallest complete core flow first and defer
+non-essential enhancements.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+Rationale: predictable value delivery and lower delivery risk.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### II. Strict TypeScript by Default
+All frontend code MUST use TypeScript strict mode by default.
+Any exception MUST be explicitly documented with scope, reason, and removal plan.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+Rationale: stronger type safety and maintainability at scale.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### III. Verifiable Acceptance Criteria
+Every feature MUST define measurable and testable acceptance criteria before implementation.
+Acceptance criteria MUST be traceable to tests or explicit manual verification steps.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+Rationale: removes ambiguity and enables objective completion checks.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+### IV. Baseline Usability Coverage
+All pages MUST pass baseline usability checks, including:
+- successful initial load
+- clickable primary interactive elements
+- form submission behavior
+- clear and actionable error messaging
+- all user-facing UI copy and navigation text MUST be Chinese by default; only learning content
+  (e.g., English vocabulary, example sentences) may contain English
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+Rationale: protects minimum product usability and prevents regressions.
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+### V. Mandatory Quality Gates
+All changes MUST pass lint, unit tests, and integration tests before merge.
+Key pages MUST pass Playwright smoke tests.
+UI changes MUST produce screenshots for acceptance.
+Automated self-fix loops MUST NOT exceed 3 rounds; beyond that, human handling is required.
+Unapproved heavy dependencies MUST NOT be introduced.
+Maintainability and testability MUST take priority in architecture and implementation choices.
+
+Rationale: enforces consistent delivery quality and sustainable code evolution.
+
+## Delivery & Quality Standards
+
+- Definition of Done MUST include:
+  - linked acceptance criteria
+  - required test pass evidence (lint, unit, integration)
+  - Playwright smoke evidence for key pages (if impacted)
+  - UI screenshot evidence for UI-impacting changes
+- Dependency changes MUST include impact review. Heavy dependencies require explicit approval
+before introduction.
+- If automatic repair attempts reach 3 unsuccessful rounds, work MUST be escalated with
+failure summary and blocker details.
+
+## Workflow & Review Policy
+
+- Planning MUST sequence work as: core flow first, extensions second.
+- Reviewers MUST reject changes missing any mandatory gate evidence.
+- Any exception to this constitution MUST be documented in the plan with approver identity,
+scope, expiry condition, and rollback path.
+- Constitution compliance checks are mandatory in planning, implementation, and PR review.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This constitution supersedes conflicting project conventions.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+Amendment process:
+1. Propose a documented change with rationale and impact scope.
+2. Review impact on templates, tests, and workflow checks.
+3. Obtain project maintainer approval.
+4. Update version, amendment date, and synchronization notes.
+
+Versioning policy:
+- MAJOR: breaking governance changes or principle removals/redefinitions.
+- MINOR: new principle/section or materially expanded requirements.
+- PATCH: clarifications without semantic behavior change.
+
+Compliance expectations:
+- Every plan, tasks list, and PR review MUST include constitution compliance checks.
+- Non-compliant items MUST be resolved or approved via formal exception.
+
+**Version**: 1.0.0 | **Ratified**: 2026-03-06 | **Last Amended**: 2026-03-06

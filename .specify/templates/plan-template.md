@@ -31,7 +31,16 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+- [ ] Core flow first: MVP core user journey is defined and scheduled before extensions.
+- [ ] Frontend strict TS: impacted frontend scope enforces TypeScript strict mode or has approved exception.
+- [ ] Acceptance criteria: every feature story has measurable, verifiable acceptance criteria.
+- [ ] Baseline usability: load, click, form submit, and error message checks are planned for each impacted page.
+- [ ] Quality gates: lint + unit + integration test execution is planned and required for merge.
+- [ ] Key pages smoke tests: Playwright smoke tests are identified for key pages.
+- [ ] UI evidence: screenshot artifacts are planned for all UI changes.
+- [ ] Auto-fix cap: troubleshooting plan limits automated self-fix loops to max 3 rounds before escalation.
+- [ ] Dependency policy: no heavy dependency is introduced without explicit approval.
+- [ ] Maintainability/testability: design choices are justified for long-term maintainability and testability.
 
 ## Project Structure
 
