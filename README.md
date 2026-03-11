@@ -1,5 +1,11 @@
 # EnglishStudyAI
 
+[![Main Branch](https://img.shields.io/badge/branch-main-0f5cd6)](https://github.com/hushengjie666/EnglishStudyAI/tree/main)
+![Vite](https://img.shields.io/badge/Vite-7.3.1-646cff)
+![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178c6)
+![Vitest](https://img.shields.io/badge/tests-unit%20%7C%20integration-2f855a)
+![Playwright](https://img.shields.io/badge/e2e-Playwright-45ba63)
+
 面向职场人士的 AI 英语学习 Web 应用，聚焦“领域词汇学习、短时测评、自适应学习计划、AI 微课程与自动复习判断”。
 
 ## 项目简介
@@ -28,6 +34,35 @@ npm run dev
 - 自动化判断：用户只需要作答，系统负责判断掌握情况与安排复习
 - AI 可替换：当前支持 DeepSeek，调用层设计可切换到 Qwen、GPT 或兼容 OpenAI 协议的服务
 - 中文化交互：除学习内容外，界面提示、按钮、导航默认中文显示
+
+## 架构概览
+```mermaid
+flowchart LR
+    A["首页设置<br/>领域 + 目标"] --> B["词汇短测<br/>5-10 题自动评分"]
+    B --> C["AI 学习计划生成"]
+    C --> D["AI 微课程学习页"]
+    D --> E["系统自动判定掌握情况"]
+    E --> F["自适应学习引擎<br/>薄弱点 + 间隔复习"]
+    F --> C
+    C --> G["课堂作业生成与反馈"]
+
+    H["本地存储"] --> A
+    H --> C
+    H --> D
+    I["可替换 AI Provider<br/>DeepSeek / Qwen / GPT"] --> C
+    I --> D
+    I --> E
+```
+
+## 页面预览
+### 首页设置
+![首页设置](tests/e2e/artifacts/screenshots/us1-homepage.png)
+
+### 学习计划
+![学习计划](frontend/tests/e2e/artifacts/screenshots/ux-plan-full.png)
+
+### 学习课程
+![学习课程](tests/e2e/artifacts/screenshots/us2-session.png)
 
 ## 技术栈
 - Vite
